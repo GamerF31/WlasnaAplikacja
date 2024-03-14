@@ -26,7 +26,7 @@ float minJump = float.MaxValue;
 List<int> bestCompetitors = new List<int>();
 List<int> worstCompetitors = new List<int>();
 
-while(i<numberOfCompetitors)
+while (i<numberOfCompetitors)
 {
     Console.WriteLine($"Jump of competitor {competitors[i].Name} {competitors[i].Surname}: ");
     var input = Console.ReadLine();
@@ -34,7 +34,11 @@ while(i<numberOfCompetitors)
     {
         competitors[i].AddGrade(0);
         Console.WriteLine($"Unfortunately, competitor {competitors[i].Name} {competitors[i].Surname} fouled the jump");
-
+        string fileName = $"{competitors[i].Name}_{competitors[i].Surname}_jump.txt";
+        using (StreamWriter writer = File.AppendText(fileName))
+        {
+            writer.WriteLine(0);
+        }
         i++;
     }
     else
@@ -64,7 +68,7 @@ while(i<numberOfCompetitors)
             }
             competitors[i].AddGrade(jump);
             Console.WriteLine($"Competitor {competitors[i].Name} {competitors[i].Surname} made a jump of {jump} meters");
-            
+
             string fileName = $"{competitors[i].Name}_{competitors[i].Surname}_jump.txt";
             using (StreamWriter writer = File.AppendText(fileName))
             {

@@ -10,7 +10,7 @@ namespace CompetitorTests
         {
             // arrange
             
-            var competitor = new LongJumpCompetitorsInFile("Lionel", "Messi");
+            var competitor = new LongJumpCompetitorsInFile("CristianoGOAT", "Ronaldo");
             competitor.AddGrade(5);
             competitor.AddGrade(6);
             competitor.AddGrade(4);
