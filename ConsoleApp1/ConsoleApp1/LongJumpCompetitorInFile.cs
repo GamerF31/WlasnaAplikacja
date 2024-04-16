@@ -48,15 +48,15 @@ namespace ConsoleApp1
             var result = this.CountStatistics(gradesFromFile);
             return result;
         }
-        private List<float> ReadJumpsFromFile() 
+        private List<float> ReadJumpsFromFile()
         {
             var jumps = new List<float>();
-            if(File.Exists(fileName))
+            if (File.Exists(fileName))
             {
                 using (var reader = File.OpenText(fileName))
                 {
                     var line = reader.ReadLine();
-                    while(line != null) 
+                    while (line != null)
                     {
                         var number = float.Parse(line);
                         jumps.Add(number);
@@ -68,6 +68,16 @@ namespace ConsoleApp1
             return jumps;
 
         }
+
+        public void AddJumpToFile(float jump)
+        {
+            string individualFileName = $"{this.Name}_{this.Surname}_jump.txt";
+            using (StreamWriter writer = File.AppendText(individualFileName))
+            {
+                writer.WriteLine(jump);
+            }
+        }
+
         private Statistics CountStatistics(List<float> jumps)
         {
             var statistics = new Statistics();
@@ -82,5 +92,3 @@ namespace ConsoleApp1
 
     }
 }
-
-

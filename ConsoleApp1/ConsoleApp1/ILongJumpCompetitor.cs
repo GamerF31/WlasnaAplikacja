@@ -7,7 +7,7 @@ namespace ConsoleApp1
         string Surname { get; }
         void AddGrade(float grade);
         void AddGrade(string grade);
-        void AddGrade(int grade);   
+        void AddGrade(int grade);
         Statistics GetStatistics();
     }
 }
