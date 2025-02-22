@@ -3,7 +3,15 @@ Console.WriteLine("Welcome to the Long Jump Competition!");
 Thread.Sleep(2000);
 Console.WriteLine();
 
-const int numberOfCompetitors = 2;
+Console.WriteLine($"Enter the number of competitors ");
+
+int numberOfCompetitors;
+
+while (!int.TryParse(Console.ReadLine(), out numberOfCompetitors) || numberOfCompetitors <= 0)
+{
+    Console.WriteLine("Invalid input. Please enter a positive integer.");
+}
+Thread.Sleep(1000);
 var competitors = new List<LongJumpCompetitorsInFile>();
 int j = 0;
 while (j < numberOfCompetitors)
